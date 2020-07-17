@@ -1,31 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/07/15/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+    <title>MyBatisPlus</title>
+    <url>/2020/07/17/MyBatisPlus/</url>
+    <content><![CDATA[<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>&emsp;&emsp;MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。</p>
+<a id="more"></a>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>&nbsp;</p>
+<h2 id="二、特性"><a href="#二、特性" class="headerlink" title="二、特性"></a>二、特性</h2><p>&emsp;&emsp;<strong>无侵入</strong>：只做增强不做改变，引入它不会对现有工程产生影响，如丝般顺滑。<br>&emsp;&emsp;<strong>损耗小</strong>：启动即会自动注入基本 CURD，性能基本无损耗，直接面向对象操作。<br>&emsp;&emsp;<strong>强大的 CRUD 操作</strong>：内置通用 Mapper、通用 Service，仅仅通过少量配置即可实现单表大部分 CRUD 操作，更有强大的条件构造器，满足各类使用需求。<br>&emsp;&emsp;<strong>支持 Lambda 形式调用</strong>：通过 Lambda 表达式，方便的编写各类查询条件，无需再担心字段写错。<br>&emsp;&emsp;<strong>支持多种数据库</strong>：支持 MySQL、MariaDB、Oracle、DB2、H2、HSQL、SQLite、Postgre、SQLServer2005、SQLServer 等多种数据库。<br>&emsp;&emsp;<strong>支持主键自动生成</strong>：支持多达 4 种主键策略（内含分布式唯一 ID 生成器 - Sequence），可自由配置，完美解决主键问题。<br>&emsp;&emsp;<strong>支持 XML 热加载</strong>：Mapper 对应的 XML 支持热加载，对于简单的 CRUD 操作，甚至可以无 XML 启动。<br>&emsp;&emsp;<strong>支持 ActiveRecord 模式</strong>：支持 ActiveRecord 形式调用，实体类只需继承 Model 类即可进行强大的 CRUD 操作。<br>&emsp;&emsp;<strong>支持自定义全局通用操作</strong>：支持全局通用方法注入（ Write once, use anywhere ）。<br>&emsp;&emsp;<strong>支持关键词自动转义</strong>：支持数据库关键词（order、key……）自动转义，还可自定义关键词。<br>&emsp;&emsp;<strong>内置代码生成器</strong>：采用代码或者 Maven 插件可快速生成 Mapper 、 Model 、 Service 、 Controller 层代码，支持模板引擎，更有超多自定义配置等您来使用。<br>&emsp;&emsp;<strong>内置分页插件</strong>：基于 MyBatis 物理分页，开发者无需关心具体操作，配置好插件之后，写分页等同于普通 List 查询。<br>&emsp;&emsp;<strong>内置性能分析插件</strong>：可输出 Sql 语句以及其执行时间，建议开发测试时启用该功能，能快速揪出慢查询。<br>&emsp;&emsp;<strong>内置全局拦截插件</strong>：提供全表 delete 、 update 操作智能分析阻断，也可自定义拦截规则，预防误操作。<br>&emsp;&emsp;<strong>内置 Sql 注入剥离器</strong>：支持 Sql 注入剥离，有效预防 Sql 注入攻击。</p>
+<p>&nbsp;</p>
+<h2 id="三、配置日志s"><a href="#三、配置日志s" class="headerlink" title="三、配置日志s"></a>三、配置日志s</h2><p>查看sql输出日志</p>
+<pre><code>#mybatis日志
+mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl</code></pre><p>&nbsp;</p>
+<h2 id="三、主键策略"><a href="#三、主键策略" class="headerlink" title="三、主键策略"></a>三、主键策略</h2><h3 id="1-ID-WORKER"><a href="#1-ID-WORKER" class="headerlink" title="(1)ID_WORKER"></a>(1)ID_WORKER</h3><p>MyBatis-Plus默认的主键策略是：ID_WORKER  全局唯一ID<br>参考资料：分布式系统唯一ID生成方案汇总：<a href="https://www.cnblogs.com/haoxinyue/p/5208136.html" target="_blank" rel="noopener">https://www.cnblogs.com/haoxinyue/p/5208136.html</a></p>
+<h3 id="2-自增策略"><a href="#2-自增策略" class="headerlink" title="(2)自增策略"></a>(2)自增策略</h3><p>要想主键自增需要配置如下主键策略<br>&emsp;&emsp;<em>需要在创建数据表的时候设置主键自增</em><br>&emsp;&emsp;<em>实体字段中配置 @TableId(type = IdType.AUTO)</em><br>&nbsp;<br>要想影响所有实体的配置，可以设置全局主键配置</p>
+<pre><code>#全局设置主键生成策略
+mybatis-plus.global-config.db-config.id-type=auto</code></pre><p>&nbsp;</p>
+]]></content>
+      <categories>
+        <category>MyBatisPlus</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>八种商业模式</title>
+    <url>/2020/07/15/%E5%85%AB%E5%A4%A7%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h2 id="1、C2C模式（Consumer-To-Consumer-平台模式-）"><a href="#1、C2C模式（Consumer-To-Consumer-平台模式-）" class="headerlink" title="1、C2C模式（Consumer To Consumer 平台模式 ）"></a>1、C2C模式（Consumer To Consumer 平台模式 ）</h2><p>&emsp;&emsp;用户到用户，这种模式本质是将自己的流量或者用户转卖给视频或者直播的内容提供者，通过出售内容分成获利。平台模式避开了非常沉重的内容和服务，扩张迅速，但实际这种模式也有缺陷，在线教育这两年的发展使内容迅速贬值，比较难带来更免费用户和流量。</p>
+<a id="more"></a>
+<p>代表网站：<br>&emsp;&emsp;腾讯课堂 <a href="https://ke.qq.com/" target="_blank" rel="noopener">https://ke.qq.com/</a></p>
+<p>&nbsp;</p>
+<h2 id="2、B2C模式（Business-To-Customer-会员模式）"><a href="#2、B2C模式（Business-To-Customer-会员模式）" class="headerlink" title="2、B2C模式（Business To Customer 会员模式）"></a>2、B2C模式（Business To Customer 会员模式）</h2><p>&emsp;&emsp;商家到用户，这种模式是自己制作大量自有版权的视频，放在自有平台上，让用户按月付费或者按年付费。 这种模式简单，快速，只要专心录制大量视频即可快速发展，其曾因为 lynda 的天价融资而 大热。但在中国由于版权保护意识不强，教育内容易于复制，有海量的免费资源的竞争对手众多等原因，难以取得像样的现金流。<br>代表网站：<br>&emsp;&emsp;慕课网 <a href="https://www.imooc.com/" target="_blank" rel="noopener">https://www.imooc.com/</a></p>
+<p>&nbsp;</p>
+<h2 id="3、B2B2C（商家到商家到用户）"><a href="#3、B2B2C（商家到商家到用户）" class="headerlink" title="3、B2B2C（商家到商家到用户）"></a>3、B2B2C（商家到商家到用户）</h2><p>&emsp;&emsp;平台链接第三方教育机构和用户，平台一般不直接提供课程内容，而是更多承担教育的互联网载体角色，为教学过程各个环节提供全方位支持和服务。<br>代表网站：<br>&emsp;&emsp;腾讯课堂 <a href="https://ke.qq.com/" target="_blank" rel="noopener">https://ke.qq.com/</a></p>
+<p>&nbsp;</p>
+<h2 id="4、垂直领域"><a href="#4、垂直领域" class="headerlink" title="4、垂直领域"></a>4、垂直领域</h2><p>&emsp;&emsp;这种模式需要糅合录播，直播，帮助服务等多种手段，对学生学习某一项内容负责。这种模式收费高，有较强的壁垒。这种产品一旦形成口碑，会有稳定的用户群和收入，但产品非常复杂，难度大，门槛高，即使单独一个项目都会耗费大量的人力物力，因此发展速度较慢。<br>代表网站：<br>&emsp;&emsp;网易云课堂的微专业 <a href="https://study.163.com/" target="_blank" rel="noopener">https://study.163.com/</a></p>
+<p>&nbsp;</p>
+<h2 id="5、直播、互动"><a href="#5、直播、互动" class="headerlink" title="5、直播、互动"></a>5、直播、互动</h2><p>&emsp;&emsp;这种模式将传统课堂上的反馈，交互，答疑搬到线上。让用户容易接受，只要服务贴心，用 户就愿意买单，因此有丰富现金流。但缺陷是只能通过平台吸引用户，造成了竞争门槛过低， 模式雷同，对手众多，收益的永远是拥有流量或者用户的大平台。<br>代表网站：<br>&emsp;&emsp;学而思 <a href="https://www.xueersi.com" target="_blank" rel="noopener">https://www.xueersi.com</a></p>
+<p>&nbsp;</p>
+<h2 id="6、1-对-1"><a href="#6、1-对-1" class="headerlink" title="6、1 对 1"></a>6、1 对 1</h2><p>&emsp;&emsp;让一个讲师在一定时间内对一个学员进行辅导，学生按照时间支付费用。这种模式收费容易， 现金流好，产品难度不大，市场空间大，但是人力资源的获取消耗却是巨大的，如果师资上控制不好，比如优秀的讲师留不住，或者整体成本太大，都会导致 1 对 1 模式难以发展。<br>代表网站：<br>&emsp;&emsp;学而思 <a href="https://www.xueersi.com" target="_blank" rel="noopener">https://www.xueersi.com</a></p>
+<p>&nbsp;</p>
+<h2 id="7、O2O-模式（Online-To-Offline-线上到线下）"><a href="#7、O2O-模式（Online-To-Offline-线上到线下）" class="headerlink" title="7、O2O 模式（Online To Offline 线上到线下）"></a>7、O2O 模式（Online To Offline 线上到线下）</h2><p>&emsp;&emsp;就是通过免费内容或者运营，让线上平台获取用户和流量，将用户吸引到线下开课，或 者让学员到加盟的线下机构上课。这种模式形式简单，收益高，只要把控用户需求，吸引到用户，收费不成问题，而且符合传统的消费习惯。<br>代表网站：<br>&emsp;&emsp;启德教育 <a href="https://www.eic.org.cn/" target="_blank" rel="noopener">https://www.eic.org.cn/</a></p>
+<p>&nbsp;</p>
+<h2 id="8、freemium（免费增值）"><a href="#8、freemium（免费增值）" class="headerlink" title="8、freemium（免费增值）"></a>8、freemium（免费增值）</h2><p>&emsp;&emsp;Freemium最早由AVC的Fred Wilson在2006年提出, 指的是用免费服务吸引用户，然后通过增值服务，将部分免费用户转化为收费用户，实现变现。Freemium模式中有“二八定律”的因素，即一小部分对价格不敏感的高端用户，愿意为一些额 外的功能付费，为服务提供者带来大部分收入。<br>代表网站：<br>&emsp;&emsp;中国大学慕课 <a href="http://www.icourse163.org" target="_blank" rel="noopener">http://www.icourse163.org</a> </p>
+<p>&nbsp;</p>
 ]]></content>
   </entry>
   <entry>
-    <title>我的第一篇文章</title>
-    <url>/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
-<hr>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
-<hr>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>内容</p>
+    <title>MP代码生成器</title>
+    <url>/2020/07/17/MP%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8/</url>
+    <content><![CDATA[<p>CodeGenerator.java</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">getCode</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">main1</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 1、创建代码生成器</span></span><br><span class="line">        AutoGenerator mpg = <span class="keyword">new</span> AutoGenerator();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2、全局配置</span></span><br><span class="line">        GlobalConfig gc = <span class="keyword">new</span> GlobalConfig();</span><br><span class="line">        String projectPath = System.getProperty(<span class="string">"user.dir"</span>);</span><br><span class="line">        System.out.println(projectPath);</span><br><span class="line">        gc.setOutputDir(projectPath + <span class="string">"/src/main/java"</span>);</span><br><span class="line">        gc.setAuthor(<span class="string">"atguigu"</span>);</span><br><span class="line">        gc.setOpen(<span class="keyword">false</span>); <span class="comment">//生成后是否打开资源管理器</span></span><br><span class="line">        gc.setFileOverride(<span class="keyword">false</span>); <span class="comment">//重新生成时文件是否覆盖</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * mp生成service层代码，默认接口名称第一个字母有 I</span></span><br><span class="line"><span class="comment">         * UcenterService</span></span><br><span class="line"><span class="comment">         * */</span></span><br><span class="line">        gc.setServiceName(<span class="string">"%sService"</span>);	<span class="comment">//去掉Service接口的首字母I</span></span><br><span class="line">        gc.setIdType(IdType.ID_WORKER); <span class="comment">//主键策略</span></span><br><span class="line">        gc.setDateType(DateType.ONLY_DATE);<span class="comment">//定义生成的实体类中日期类型</span></span><br><span class="line">        gc.setSwagger2(<span class="keyword">true</span>);<span class="comment">//开启Swagger2模式</span></span><br><span class="line"></span><br><span class="line">        mpg.setGlobalConfig(gc);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3、数据源配置</span></span><br><span class="line">        DataSourceConfig dsc = <span class="keyword">new</span> DataSourceConfig();</span><br><span class="line">        dsc.setUrl(<span class="string">"jdbc:mysql://localhost:3306/guli?serverTimezone=GMT%2B8"</span>);</span><br><span class="line">        dsc.setDriverName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);</span><br><span class="line">        dsc.setUsername(<span class="string">"root"</span>);</span><br><span class="line">        dsc.setPassword(<span class="string">"root"</span>);</span><br><span class="line">        dsc.setDbType(DbType.MYSQL);</span><br><span class="line">        mpg.setDataSource(dsc);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4、包配置</span></span><br><span class="line">        PackageConfig pc = <span class="keyword">new</span> PackageConfig();</span><br><span class="line">        pc.setModuleName(<span class="string">"serviceedu"</span>); <span class="comment">//模块名</span></span><br><span class="line">        pc.setParent(<span class="string">"com.atguigu"</span>);</span><br><span class="line">        pc.setController(<span class="string">"controller"</span>);</span><br><span class="line">        pc.setEntity(<span class="string">"entity"</span>);</span><br><span class="line">        pc.setService(<span class="string">"service"</span>);</span><br><span class="line">        pc.setMapper(<span class="string">"mapper"</span>);</span><br><span class="line">        mpg.setPackageInfo(pc);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5、策略配置</span></span><br><span class="line">        StrategyConfig strategy = <span class="keyword">new</span> StrategyConfig();</span><br><span class="line">        strategy.setInclude(<span class="string">"edu_teacher"</span>);</span><br><span class="line">        strategy.setNaming(NamingStrategy.underline_to_camel);<span class="comment">//数据库表映射到实体的命名策略</span></span><br><span class="line">        strategy.setTablePrefix(pc.getModuleName() + <span class="string">"_"</span>); <span class="comment">//生成实体时去掉表前缀</span></span><br><span class="line"></span><br><span class="line">        strategy.setColumnNaming(NamingStrategy.underline_to_camel);<span class="comment">//数据库表字段映射到实体的命名策略</span></span><br><span class="line">        strategy.setEntityLombokModel(<span class="keyword">true</span>); <span class="comment">// lombok 模型 @Accessors(chain = true) setter链式操作</span></span><br><span class="line"></span><br><span class="line">        strategy.setRestControllerStyle(<span class="keyword">true</span>); <span class="comment">//restful api风格控制器</span></span><br><span class="line">        strategy.setControllerMappingHyphenStyle(<span class="keyword">true</span>); <span class="comment">//url中驼峰转连字符</span></span><br><span class="line"></span><br><span class="line">        mpg.setStrategy(strategy);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 6、执行</span></span><br><span class="line">        mpg.execute();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;</p>
 ]]></content>
+      <categories>
+        <category>MyBatisPlus</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Swagger2</title>
+    <url>/2020/07/17/Swagger2/</url>
+    <content><![CDATA[<h2 id="一、Swagger简介"><a href="#一、Swagger简介" class="headerlink" title="一、Swagger简介"></a>一、Swagger简介</h2><p>前后端分离开发模式中，api文档是最好的沟通方式。<br>Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。</p>
+<a id="more"></a>
+<p>&emsp;&emsp;<strong><em>1、及时性</em></strong> (接口变更后，能够及时准确地通知相关前后端开发人员)<br>&emsp;&emsp;<strong><em>2、规范性</em></strong> (并且保证接口的规范性，如接口的地址，请求方式，参数及响应格式和错误信息)<br>&emsp;&emsp;<strong><em>3、一致性</em></strong> (接口信息一致，不会出现因开发人员拿到的文档版本不一致，而出现分歧)<br>&emsp;&emsp;<strong><em>4、可测性</em></strong> (直接在接口文档上进行测试，以方便理解业务)</p>
+<h2 id="二、创建swagger的配置类"><a href="#二、创建swagger的配置类" class="headerlink" title="二、创建swagger的配置类"></a>二、创建swagger的配置类</h2><p>创建类SwaggerConfig</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger</span>2</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">webApiConfig</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .groupName(<span class="string">"webApi"</span>)</span><br><span class="line">                .apiInfo(webApiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .paths(Predicates.not(PathSelectors.regex(<span class="string">"/admin/.*"</span>)))</span><br><span class="line">                .paths(Predicates.not(PathSelectors.regex(<span class="string">"/error.*"</span>)))</span><br><span class="line">                .build();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">webApiInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder()</span><br><span class="line">                .title(<span class="string">"网站-课程中心API文档"</span>)</span><br><span class="line">                .description(<span class="string">"本文档描述了课程中心微服务接口定义"</span>)</span><br><span class="line">                .version(<span class="string">"1.0"</span>)</span><br><span class="line">                .contact(<span class="keyword">new</span> Contact(<span class="string">"Helen"</span>, <span class="string">"http://atguigu.com"</span>, <span class="string">"55317332@qq.com"</span>))</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>定义接口说明和参数说明:<br>&emsp;&emsp;定义在类上：@Api<br>&emsp;&emsp;定义在方法上：@ApiOperation<br>&emsp;&emsp;定义在参数上：@ApiParam</p>
+<p>&nbsp;</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>数据库设计规约</title>
+    <url>/2020/07/17/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E8%A7%84%E7%BA%A6/</url>
+    <content><![CDATA[<p>1、库名与应用名称尽量一致</p>
+<a id="more"></a>
+<p>2、表名、字段名必须使用小写字母或数字，禁止出现数字开头，</p>
+<p>3、表名不使用复数名词</p>
+<p>4、表的命名最好是加上“业务名称_表的作用”。如，edu_teacher</p>
+<p>5、表必备三字段：id, gmt_create, gmt_modified<br>&emsp;&emsp;说明：其中 id 必为主键，类型为 bigint unsigned、单表时自增、步长为 1。<br>（如果使用分库分表集群部署，则id类型为verchar，非自增，业务中使用分布式id生成器）<br>gmt_create, gmt_modified 的类型均为 datetime 类型，前者现在时表示主动创建，后者过去分词表示被 动更新。</p>
+<p>6、单表行数超过 500 万行或者单表容量超过 2GB，才推荐进行分库分表。 说明：如果预计三年后的数据量根本达不到这个级别，请不要在创建表时就分库分表。 </p>
+<p>7、表达是与否概念的字段，必须使用 is_xxx 的方式命名，数据类型是 unsigned tinyint （1 表示是，0 表示否）。<br>&emsp;&emsp;说明：任何字段如果为非负数，必须是 unsigned。<br>&emsp;&emsp;注意：POJO 类中的任何布尔类型的变量，都不要加 is 前缀。数据库表示是与否的值，使用 tinyint 类型，坚持 is_xxx 的 命名方式是为了明确其取值含义与取值范围。<br>&emsp;&emsp;正例：表达逻辑删除的字段名 is_deleted，1 表示删除，0 表示未删除。 </p>
+<p>8、小数类型为 decimal，禁止使用 float 和 double。 说明：float 和 double 在存储的时候，存在精度损失的问题，很可能在值的比较时，得到不 正确的结果。如果存储的数据范围超过 decimal 的范围，建议将数据拆成整数和小数分开存储。</p>
+<p>9、如果存储的字符串长度几乎相等，使用 char 定长字符串类型。 </p>
+<p>10、varchar 是可变长字符串，不预先分配存储空间，长度不要超过 5000，如果存储长度大于此值，定义字段类型为 text，独立出来一张表，用主键来对应，避免影响其它字段索 引效率。</p>
+<p>11、唯一索引名为 uk_字段名；普通索引名则为 idx_字段名。<br>&emsp;&emsp;说明：uk_ 即 unique key；idx_ 即 index 的简称</p>
+<p>12、不得使用外键与级联，一切外键概念必须在应用层解决。外键与级联更新适用于单机低并发，不适合分布式、高并发集群；级联更新是强阻塞，存在数据库更新风暴的风险；外键影响数据库的插入速度。 </p>
+<p>&nbsp;</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
   </entry>
 </search>
