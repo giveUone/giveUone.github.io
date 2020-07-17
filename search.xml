@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>MyBatisPlus</title>
+    <url>/2020/07/17/MP%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="一、自动填充封装"><a href="#一、自动填充封装" class="headerlink" title="一、自动填充封装"></a>一、自动填充封装</h2><p>创建自动填充类 MyMetaObjectHandler</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMetaObjectHandler</span> <span class="keyword">implements</span> <span class="title">MetaObjectHandler</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertFill</span><span class="params">(MetaObject metaObject)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setFieldValByName(<span class="string">"gmtCreate"</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line">        <span class="keyword">this</span>.setFieldValByName(<span class="string">"gmtModified"</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateFill</span><span class="params">(MetaObject metaObject)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setFieldValByName(<span class="string">"gmtModified"</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、分页"><a href="#二、分页" class="headerlink" title="二、分页"></a>二、分页</h2><p>MyBatisPlusConfig中配置分页插件</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 分页插件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">@Bean</span><br><span class="line"><span class="function"><span class="keyword">public</span> PaginationInterceptor <span class="title">paginationInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> PaginationInterceptor();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;</p>
+]]></content>
+      <categories>
+        <category>MyBatisPlus</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>MyBatisPlus</title>
+    <url>/2020/07/17/MyBatisPlus/</url>
+    <content><![CDATA[<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>&emsp;&emsp;MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。</p>
+<a id="more"></a>
+
+<p>&nbsp;</p>
+<h2 id="二、特性"><a href="#二、特性" class="headerlink" title="二、特性"></a>二、特性</h2><p>&emsp;&emsp;<strong>无侵入</strong>：只做增强不做改变，引入它不会对现有工程产生影响，如丝般顺滑。<br>&emsp;&emsp;<strong>损耗小</strong>：启动即会自动注入基本 CURD，性能基本无损耗，直接面向对象操作。<br>&emsp;&emsp;<strong>强大的 CRUD 操作</strong>：内置通用 Mapper、通用 Service，仅仅通过少量配置即可实现单表大部分 CRUD 操作，更有强大的条件构造器，满足各类使用需求。<br>&emsp;&emsp;<strong>支持 Lambda 形式调用</strong>：通过 Lambda 表达式，方便的编写各类查询条件，无需再担心字段写错。<br>&emsp;&emsp;<strong>支持多种数据库</strong>：支持 MySQL、MariaDB、Oracle、DB2、H2、HSQL、SQLite、Postgre、SQLServer2005、SQLServer 等多种数据库。<br>&emsp;&emsp;<strong>支持主键自动生成</strong>：支持多达 4 种主键策略（内含分布式唯一 ID 生成器 - Sequence），可自由配置，完美解决主键问题。<br>&emsp;&emsp;<strong>支持 XML 热加载</strong>：Mapper 对应的 XML 支持热加载，对于简单的 CRUD 操作，甚至可以无 XML 启动。<br>&emsp;&emsp;<strong>支持 ActiveRecord 模式</strong>：支持 ActiveRecord 形式调用，实体类只需继承 Model 类即可进行强大的 CRUD 操作。<br>&emsp;&emsp;<strong>支持自定义全局通用操作</strong>：支持全局通用方法注入（ Write once, use anywhere ）。<br>&emsp;&emsp;<strong>支持关键词自动转义</strong>：支持数据库关键词（order、key……）自动转义，还可自定义关键词。<br>&emsp;&emsp;<strong>内置代码生成器</strong>：采用代码或者 Maven 插件可快速生成 Mapper 、 Model 、 Service 、 Controller 层代码，支持模板引擎，更有超多自定义配置等您来使用。<br>&emsp;&emsp;<strong>内置分页插件</strong>：基于 MyBatis 物理分页，开发者无需关心具体操作，配置好插件之后，写分页等同于普通 List 查询。<br>&emsp;&emsp;<strong>内置性能分析插件</strong>：可输出 Sql 语句以及其执行时间，建议开发测试时启用该功能，能快速揪出慢查询。<br>&emsp;&emsp;<strong>内置全局拦截插件</strong>：提供全表 delete 、 update 操作智能分析阻断，也可自定义拦截规则，预防误操作。<br>&emsp;&emsp;<strong>内置 Sql 注入剥离器</strong>：支持 Sql 注入剥离，有效预防 Sql 注入攻击。</p>
+<p>&nbsp;</p>
+<h2 id="三、配置日志s"><a href="#三、配置日志s" class="headerlink" title="三、配置日志s"></a>三、配置日志s</h2><p>查看sql输出日志</p>
+<pre><code>#mybatis日志
+mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl</code></pre><p>&nbsp;</p>
+<h2 id="三、主键策略"><a href="#三、主键策略" class="headerlink" title="三、主键策略"></a>三、主键策略</h2><h3 id="1-ID-WORKER"><a href="#1-ID-WORKER" class="headerlink" title="(1)ID_WORKER"></a>(1)ID_WORKER</h3><p>MyBatis-Plus默认的主键策略是：ID_WORKER  全局唯一ID<br>参考资料：分布式系统唯一ID生成方案汇总：<a href="https://www.cnblogs.com/haoxinyue/p/5208136.html" target="_blank" rel="noopener">https://www.cnblogs.com/haoxinyue/p/5208136.html</a></p>
+<h3 id="2-自增策略"><a href="#2-自增策略" class="headerlink" title="(2)自增策略"></a>(2)自增策略</h3><p>要想主键自增需要配置如下主键策略<br>&emsp;&emsp;<em>需要在创建数据表的时候设置主键自增</em><br>&emsp;&emsp;<em>实体字段中配置 @TableId(type = IdType.AUTO)</em><br>&nbsp;<br>要想影响所有实体的配置，可以设置全局主键配置</p>
+<pre><code>#全局设置主键生成策略
+mybatis-plus.global-config.db-config.id-type=auto</code></pre><p>&nbsp;</p>
+]]></content>
+      <categories>
+        <category>MyBatisPlus</category>
+      </categories>
+  </entry>
+  <entry>
     <title>ES6</title>
     <url>/2020/07/17/ES6/</url>
     <content><![CDATA[<h2 id="一、ECMAScript-6-简介"><a href="#一、ECMAScript-6-简介" class="headerlink" title="一、ECMAScript 6 简介"></a>一、ECMAScript 6 简介</h2><p>ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
@@ -60,22 +97,6 @@
       </categories>
   </entry>
   <entry>
-    <title>MyBatisPlus</title>
-    <url>/2020/07/17/MP%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="一、自动填充封装"><a href="#一、自动填充封装" class="headerlink" title="一、自动填充封装"></a>一、自动填充封装</h2><p>创建自动填充类 MyMetaObjectHandler</p>
-<a id="more"></a>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMetaObjectHandler</span> <span class="keyword">implements</span> <span class="title">MetaObjectHandler</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertFill</span><span class="params">(MetaObject metaObject)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setFieldValByName(<span class="string">"gmtCreate"</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line">        <span class="keyword">this</span>.setFieldValByName(<span class="string">"gmtModified"</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateFill</span><span class="params">(MetaObject metaObject)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setFieldValByName(<span class="string">"gmtModified"</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、分页"><a href="#二、分页" class="headerlink" title="二、分页"></a>二、分页</h2><p>MyBatisPlusConfig中配置分页插件</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 分页插件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">@Bean</span><br><span class="line"><span class="function"><span class="keyword">public</span> PaginationInterceptor <span class="title">paginationInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> PaginationInterceptor();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>&nbsp;</p>
-]]></content>
-      <categories>
-        <category>MyBatisPlus</category>
-      </categories>
-  </entry>
-  <entry>
     <title>MP代码生成器</title>
     <url>/2020/07/17/MP%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8/</url>
     <content><![CDATA[<p>CodeGenerator.java</p>
@@ -87,39 +108,6 @@
       <categories>
         <category>MyBatisPlus</category>
       </categories>
-  </entry>
-  <entry>
-    <title>MyBatisPlus</title>
-    <url>/2020/07/17/MyBatisPlus/</url>
-    <content><![CDATA[<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>&emsp;&emsp;MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。</p>
-<a id="more"></a>
-
-<p>&nbsp;</p>
-<h2 id="二、特性"><a href="#二、特性" class="headerlink" title="二、特性"></a>二、特性</h2><p>&emsp;&emsp;<strong>无侵入</strong>：只做增强不做改变，引入它不会对现有工程产生影响，如丝般顺滑。<br>&emsp;&emsp;<strong>损耗小</strong>：启动即会自动注入基本 CURD，性能基本无损耗，直接面向对象操作。<br>&emsp;&emsp;<strong>强大的 CRUD 操作</strong>：内置通用 Mapper、通用 Service，仅仅通过少量配置即可实现单表大部分 CRUD 操作，更有强大的条件构造器，满足各类使用需求。<br>&emsp;&emsp;<strong>支持 Lambda 形式调用</strong>：通过 Lambda 表达式，方便的编写各类查询条件，无需再担心字段写错。<br>&emsp;&emsp;<strong>支持多种数据库</strong>：支持 MySQL、MariaDB、Oracle、DB2、H2、HSQL、SQLite、Postgre、SQLServer2005、SQLServer 等多种数据库。<br>&emsp;&emsp;<strong>支持主键自动生成</strong>：支持多达 4 种主键策略（内含分布式唯一 ID 生成器 - Sequence），可自由配置，完美解决主键问题。<br>&emsp;&emsp;<strong>支持 XML 热加载</strong>：Mapper 对应的 XML 支持热加载，对于简单的 CRUD 操作，甚至可以无 XML 启动。<br>&emsp;&emsp;<strong>支持 ActiveRecord 模式</strong>：支持 ActiveRecord 形式调用，实体类只需继承 Model 类即可进行强大的 CRUD 操作。<br>&emsp;&emsp;<strong>支持自定义全局通用操作</strong>：支持全局通用方法注入（ Write once, use anywhere ）。<br>&emsp;&emsp;<strong>支持关键词自动转义</strong>：支持数据库关键词（order、key……）自动转义，还可自定义关键词。<br>&emsp;&emsp;<strong>内置代码生成器</strong>：采用代码或者 Maven 插件可快速生成 Mapper 、 Model 、 Service 、 Controller 层代码，支持模板引擎，更有超多自定义配置等您来使用。<br>&emsp;&emsp;<strong>内置分页插件</strong>：基于 MyBatis 物理分页，开发者无需关心具体操作，配置好插件之后，写分页等同于普通 List 查询。<br>&emsp;&emsp;<strong>内置性能分析插件</strong>：可输出 Sql 语句以及其执行时间，建议开发测试时启用该功能，能快速揪出慢查询。<br>&emsp;&emsp;<strong>内置全局拦截插件</strong>：提供全表 delete 、 update 操作智能分析阻断，也可自定义拦截规则，预防误操作。<br>&emsp;&emsp;<strong>内置 Sql 注入剥离器</strong>：支持 Sql 注入剥离，有效预防 Sql 注入攻击。</p>
-<p>&nbsp;</p>
-<h2 id="三、配置日志s"><a href="#三、配置日志s" class="headerlink" title="三、配置日志s"></a>三、配置日志s</h2><p>查看sql输出日志</p>
-<pre><code>#mybatis日志
-mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl</code></pre><p>&nbsp;</p>
-<h2 id="三、主键策略"><a href="#三、主键策略" class="headerlink" title="三、主键策略"></a>三、主键策略</h2><h3 id="1-ID-WORKER"><a href="#1-ID-WORKER" class="headerlink" title="(1)ID_WORKER"></a>(1)ID_WORKER</h3><p>MyBatis-Plus默认的主键策略是：ID_WORKER  全局唯一ID<br>参考资料：分布式系统唯一ID生成方案汇总：<a href="https://www.cnblogs.com/haoxinyue/p/5208136.html" target="_blank" rel="noopener">https://www.cnblogs.com/haoxinyue/p/5208136.html</a></p>
-<h3 id="2-自增策略"><a href="#2-自增策略" class="headerlink" title="(2)自增策略"></a>(2)自增策略</h3><p>要想主键自增需要配置如下主键策略<br>&emsp;&emsp;<em>需要在创建数据表的时候设置主键自增</em><br>&emsp;&emsp;<em>实体字段中配置 @TableId(type = IdType.AUTO)</em><br>&nbsp;<br>要想影响所有实体的配置，可以设置全局主键配置</p>
-<pre><code>#全局设置主键生成策略
-mybatis-plus.global-config.db-config.id-type=auto</code></pre><p>&nbsp;</p>
-]]></content>
-      <categories>
-        <category>MyBatisPlus</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Swagger2</title>
-    <url>/2020/07/17/Swagger2/</url>
-    <content><![CDATA[<h2 id="一、Swagger简介"><a href="#一、Swagger简介" class="headerlink" title="一、Swagger简介"></a>一、Swagger简介</h2><p>前后端分离开发模式中，api文档是最好的沟通方式。<br>Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。</p>
-<a id="more"></a>
-<p>&emsp;&emsp;<strong><em>1、及时性</em></strong> (接口变更后，能够及时准确地通知相关前后端开发人员)<br>&emsp;&emsp;<strong><em>2、规范性</em></strong> (并且保证接口的规范性，如接口的地址，请求方式，参数及响应格式和错误信息)<br>&emsp;&emsp;<strong><em>3、一致性</em></strong> (接口信息一致，不会出现因开发人员拿到的文档版本不一致，而出现分歧)<br>&emsp;&emsp;<strong><em>4、可测性</em></strong> (直接在接口文档上进行测试，以方便理解业务)</p>
-<h2 id="二、创建swagger的配置类"><a href="#二、创建swagger的配置类" class="headerlink" title="二、创建swagger的配置类"></a>二、创建swagger的配置类</h2><p>创建类SwaggerConfig</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger</span>2</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">webApiConfig</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .groupName(<span class="string">"webApi"</span>)</span><br><span class="line">                .apiInfo(webApiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .paths(Predicates.not(PathSelectors.regex(<span class="string">"/admin/.*"</span>)))</span><br><span class="line">                .paths(Predicates.not(PathSelectors.regex(<span class="string">"/error.*"</span>)))</span><br><span class="line">                .build();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">webApiInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder()</span><br><span class="line">                .title(<span class="string">"网站-课程中心API文档"</span>)</span><br><span class="line">                .description(<span class="string">"本文档描述了课程中心微服务接口定义"</span>)</span><br><span class="line">                .version(<span class="string">"1.0"</span>)</span><br><span class="line">                .contact(<span class="keyword">new</span> Contact(<span class="string">"Helen"</span>, <span class="string">"http://atguigu.com"</span>, <span class="string">"55317332@qq.com"</span>))</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>定义接口说明和参数说明:<br>&emsp;&emsp;定义在类上：@Api<br>&emsp;&emsp;定义在方法上：@ApiOperation<br>&emsp;&emsp;定义在参数上：@ApiParam</p>
-<p>&nbsp;</p>
-]]></content>
   </entry>
   <entry>
     <title>Node.js</title>
@@ -135,6 +123,18 @@ mybatis-plus.global-config.db-config.id-type=auto</code></pre><p>&nbsp;</p>
       <categories>
         <category>前端</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Swagger2</title>
+    <url>/2020/07/17/Swagger2/</url>
+    <content><![CDATA[<h2 id="一、Swagger简介"><a href="#一、Swagger简介" class="headerlink" title="一、Swagger简介"></a>一、Swagger简介</h2><p>前后端分离开发模式中，api文档是最好的沟通方式。<br>Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。</p>
+<a id="more"></a>
+<p>&emsp;&emsp;<strong><em>1、及时性</em></strong> (接口变更后，能够及时准确地通知相关前后端开发人员)<br>&emsp;&emsp;<strong><em>2、规范性</em></strong> (并且保证接口的规范性，如接口的地址，请求方式，参数及响应格式和错误信息)<br>&emsp;&emsp;<strong><em>3、一致性</em></strong> (接口信息一致，不会出现因开发人员拿到的文档版本不一致，而出现分歧)<br>&emsp;&emsp;<strong><em>4、可测性</em></strong> (直接在接口文档上进行测试，以方便理解业务)</p>
+<h2 id="二、创建swagger的配置类"><a href="#二、创建swagger的配置类" class="headerlink" title="二、创建swagger的配置类"></a>二、创建swagger的配置类</h2><p>创建类SwaggerConfig</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger</span>2</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">webApiConfig</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .groupName(<span class="string">"webApi"</span>)</span><br><span class="line">                .apiInfo(webApiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .paths(Predicates.not(PathSelectors.regex(<span class="string">"/admin/.*"</span>)))</span><br><span class="line">                .paths(Predicates.not(PathSelectors.regex(<span class="string">"/error.*"</span>)))</span><br><span class="line">                .build();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">webApiInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder()</span><br><span class="line">                .title(<span class="string">"网站-课程中心API文档"</span>)</span><br><span class="line">                .description(<span class="string">"本文档描述了课程中心微服务接口定义"</span>)</span><br><span class="line">                .version(<span class="string">"1.0"</span>)</span><br><span class="line">                .contact(<span class="keyword">new</span> Contact(<span class="string">"Helen"</span>, <span class="string">"http://atguigu.com"</span>, <span class="string">"55317332@qq.com"</span>))</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>定义接口说明和参数说明:<br>&emsp;&emsp;定义在类上：@Api<br>&emsp;&emsp;定义在方法上：@ApiOperation<br>&emsp;&emsp;定义在参数上：@ApiParam</p>
+<p>&nbsp;</p>
+]]></content>
   </entry>
   <entry>
     <title>Vue</title>
